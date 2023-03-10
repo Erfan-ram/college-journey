@@ -8,18 +8,27 @@
 def insertion_sort(array):
     lenght = len(array)
 
-    for i in range(1, lenght):
-        key = array[i]
-        j = i-1
+    for step in range(1, lenght):
+        key = array[step]
+        j = step-1
+
         while j >= 0 and key < array[j]:
             array[j + 1] = array[j]
             j -= 1
+
         array[j + 1] = key
 
     return array
 
 
-test_array = insertion_sort([50, 26, 25, 3, 5, 9])
+print("Please enter a list of numbers in a row seperating with \'-\' to get sorted")
+ask = input("\t\t\t e.g: 15-20-2-3-6  :    ")
+
+# convert string to list of numbers
+test_array = ask.split('-')
+test_array = list(map(lambda x: int(x), test_array))
+
+sorted = insertion_sort(test_array)
 
 for i in test_array:
-    print(f"{i}",end=" ")
+    print(f"{i}", end=" ")
