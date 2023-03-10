@@ -22,7 +22,7 @@ def insertion_sort(array):
 
 
 print("Please enter a list of numbers in a row seperating with \'-\' to get sorted")
-ask = input("\t\t\t e.g: 15-20-2-3-6  :    ")
+ask = input("\t (num-num-num-num)      UR num:  ")
 
 # convert string to list of numbers
 test_array = ask.split('-')
