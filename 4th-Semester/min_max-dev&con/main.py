@@ -1,47 +1,43 @@
 # required libraries
 import pandas as pd
 from time import time as record
+from random import randint
 
-from minmax_algorithm import find_min_max as alg
+from minmax_algorithm import find_min_max as algoritgm
 
 
 class main():
     def __init__(self) -> None:
-        # print("Hi please enter list size to compare duration time")
         print(
             "this program would compare finding duration time that is needed by devide and")
         print("conquer algorithm to find min and max in a list")
         print("and the factor is needed to compare is list size")
 
-        list_size = input("\tnow enter list size : ")
-        
-    def Fibonacci(self, num):
+    def execute(self, num):
+        index = 0
         calculated_time = []
+        test_list = []
 
-        for cur_num in range(0, num+1):
-            start = record()
-            # alg.devide_conquer(cur_num)
-            end = record()
-            devide_duration = end-start
+        for index in range(0, num):
+            test_list.append(randint(-1000, 1000))
 
             start = record()
-            # alg.dynamic_programming(cur_num)
+            min, max = algoritgm(test_list, 0, len(test_list)-1)
             end = record()
-            dynamic_duration = end-start
+            duration_time = end-start
 
-            calculated_time.append([cur_num, devide_duration, dynamic_duration, abs(
-                devide_duration-dynamic_duration)])
+            calculated_time.append(
+                [index, duration_time, min, max, '-'.join(test_list)])
 
-        return calculated_time   
+        return calculated_time
 
     def csv_output(self, list):
-        pass
-        # df = pd.DataFrame(data=list, columns=[
-        #                   "Number", "Devide-Conquer", "Dynamic-Programming", "Difference"])
-        # df.to_csv("output.csv", index=False)
-        # del df
+        df = pd.DataFrame(data=list, columns=[
+                          "Number", "Devide-Conquer", "Dynamic-Programming", "Difference"])
+        df.to_csv("output.csv", index=False)
+        del df
 
     def start(self):
-        number = int(input("\n\n Calculating Fibonacci from 0 to :  "))
-        # output_list = self.Fibonacci(number)
-        # self.csv_output(output_list)
+        number = input("\tnow enter list size : ")
+        output_list = self.execute(number)
+        self.csv_output(output_list)
