@@ -27,10 +27,4 @@ def find_min_max(arr, low, high):
         else:
             global_max = max2
             
-    return global_min, global_max
-
-# Example usage
-arr = [5, 7, 2, 9, 4, 1, 8, 3, 6]
-min_val, max_val = find_min_max(arr, 0, len(arr)-1)
-print("Minimum value:", min_val)
-print("Maximum value:", max_val)
+    return (global_min, global_max)
