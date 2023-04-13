@@ -27,18 +27,19 @@ class main():
             duration_time = end-start
 
             calculated_time.append(
-                [index+1, duration_time, min, max, '-'.join(test_list)])
+                [index+1, duration_time, min, max])
+            # [index+1, duration_time, min, max, [num for num in test_list]])
 
         return calculated_time
 
     def csv_output(self, list):
         df = pd.DataFrame(data=list, columns=[
-                          "list size", "duration time", "minimum", "maximum", "list"])
+            "list size", "duration time", "minimum", "maximum"])
         df.to_csv("output.csv", index=False)
         del df
 
     def start(self):
-        number = input("\tnow enter list size : ")
+        number = int(input("\tnow enter list size : "))
         output_list = self.execute(number)
         self.csv_output(output_list)
 
