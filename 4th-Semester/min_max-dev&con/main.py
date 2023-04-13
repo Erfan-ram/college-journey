@@ -19,16 +19,17 @@ class main():
         test_list = []
 
         for index in range(0, num):
-            test_list.append(randint(-1000, 1000))
+            test_list.append(randint(-100000, 100000))
 
-            start = record()
-            min, max = algoritgm(test_list, 0, len(test_list)-1)
-            end = record()
-            duration_time = end-start
+            if index % 100 == 0:
+                start = record()
+                min, max = algoritgm(test_list, 0, len(test_list)-1)
+                end = record()
+                duration_time = end-start
 
-            calculated_time.append(
-                [index+1, duration_time, min, max])
-            # [index+1, duration_time, min, max, [num for num in test_list]])
+                calculated_time.append(
+                    [index+1, duration_time, min, max])
+                # [index+1, duration_time, min, max, [num for num in test_list]])
 
         return calculated_time
 
