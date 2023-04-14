@@ -21,7 +21,7 @@ class main():
         for index in range(0, num):
             test_list.append(randint(-100000, 100000))
 
-            if index % 100 == 0:
+            if index % 1000 == 0:
                 start = record()
                 min, max = algoritgm(test_list, 0, len(test_list)-1)
                 end = record()
