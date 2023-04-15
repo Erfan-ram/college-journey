@@ -19,9 +19,9 @@ class main():
         test_list = []
 
         for index in range(0, num):
-            test_list.append(randint(-100000, 100000))
+            test_list.append(randint(-1000000, 1000000))
 
-            if index % 1000 == 0:
+            if index % 10000 == 0:
                 start = record()
                 min, max = algoritgm(test_list, 0, len(test_list)-1)
                 end = record()
