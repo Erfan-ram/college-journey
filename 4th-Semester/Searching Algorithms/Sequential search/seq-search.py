@@ -1,5 +1,14 @@
 def sequential_search(arr: list, element):
+    """
+    Searches for an element in the given array using sequential search algorithm
 
+    Args:
+    arr (list): A list of elements to search in
+    element: The element to search
+
+    Returns:
+    int: The index of the searched element if it exists in the array, -1 otherwise
+    """
     for i in range(len(arr)):
         if arr[i] == element:
             return i
